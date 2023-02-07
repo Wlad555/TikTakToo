@@ -1,24 +1,27 @@
+import java.util.Scanner;
 public class TikTakTo {
-    public static void main(String[] args) {
-        int[] spielerEingabe = new int[9];
-
-        for (int i = 0; i < spielerEingabe.length; i++) {
-            spielerEingabe[i] = i + 1;
+    public static void spielFeld() {
+        char[] spielfeld = new char[9];
+        for (int i = 0; i <= spielfeld.length; i++){
+            Scanner eingabe = new Scanner(System.in);
+            int stelle = eingabe.nextInt();
+            char symbol = eingabe.next().charAt(0);
+            spielfeld[stelle - 1] = symbol;
+            System.out.println("   " + spielfeld[0] + "  |  " + spielfeld[1] + "  |  " + spielfeld[2] + "\n-------------------");
+            System.out.println("   " + spielfeld[3] + "  |  " + spielfeld[4] + "  |  " + spielfeld[5] + "\n-------------------");
+            System.out.println("   " + spielfeld[6] + "  |  " + spielfeld[7] + "  |  " + spielfeld[8]);
         }
-        spielFeld(spielerEingabe);
-        System.out.println("\nDas Spielfeld ist von Feld 1 - 9 wie sie sehen. \nSie können abwechseln ein Feld auswählen und ein X/O an ihrer gewollten stelle einfügen");
+        // Eine if die es nicht erlaubt befüllte stellen zu befüllen und nicht aus dem werte bereich raus und das nur das symbol x und y genommen werden kann
 
-        
-
-        spielFeld(spielerEingabe);
-        System.out.println("Fangen wir an");
-
-    }
-
-    public static void spielFeld(int[] spielfeld) {
-
-        System.out.println("   " + spielfeld[0] + "  |  " + spielfeld[1] + "  |  " + spielfeld[2] + "\n-------------------");
+        /*System.out.println("   " + spielfeld[0] + "  |  " + spielfeld[1] + "  |  " + spielfeld[2] + "\n-------------------");
         System.out.println("   " + spielfeld[3] + "  |  " + spielfeld[4] + "  |  " + spielfeld[5] + "\n-------------------");
-        System.out.println("   " + spielfeld[6] + "  |  " + spielfeld[7] + "  |  " + spielfeld[8]);
+        System.out.println("   " + spielfeld[6] + "  |  " + spielfeld[7] + "  |  " + spielfeld[8]);*/
     }
+    public static void gewinnerTest(){
+
+    }
+    public static void main(String[] args) {
+        spielFeld();
+    }
+
 }
