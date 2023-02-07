@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+
 public class TikTakToe {
     // static char[] spielfeld = new char[9];
     static char[] spielfeld = {'1','2','3','4','5','6','7','8','9'};
@@ -19,18 +22,33 @@ public class TikTakToe {
         }
         return false;
     }
-    public static void main(String[] args) {
+
+    public static void main(String[] args){
         spielFeld();
         System.out.println("Hier sehen sie die Position 1-9 zwischen denen sie Wählen können. \nBsp: 1 X für die erste Reihe erste Spalte.");
-        for (int i = 0; i <= spielfeld.length; i++){
-            Scanner sc = new Scanner(System.in);
+
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < spielfeld.length; i++){
             int stelle = sc.nextInt();
             char symbol = sc.next().charAt(0);
-            spielfeld[stelle - 1] = symbol;
+
+
+            // Anstatt symbol zu übergeben sofort ein symbol einfügen an gewollter stelle
+
+            spielfeld[stelle - 1] = Character.toUpperCase(symbol);
             spielFeld();
-            if(gewinnerTest()) {
+            if(gewinnerTest()){
+                break;
+            }
+
+            if (i == spielfeld.length-1)
+            {
+                System.out.println("Das Spiel ist leider Unentschieden.");
                 break;
             }
         }
+
     }
 }
+
+// SP1 = x oder SP2 = o -> wenn 1 -> x -> 1 x 1
